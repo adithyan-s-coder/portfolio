@@ -105,11 +105,16 @@ const Footer = () => {
           >
             <h4 className="text-[11px] font-mono font-bold text-cyan-500/80 tracking-[0.4em] uppercase">Control_Center</h4>
             <ul className="space-y-4">
-              {['About', 'Portfolio', 'Experience', 'Lab'].map((item) => (
-                <li key={item}>
-                  <a href={`#${item.toLowerCase()}`} className="group flex items-center text-xs text-gray-500 hover:text-white transition-all tracking-widest">
+              {[
+                { name: 'About', href: '#about' },
+                { name: 'Projects', href: '#projects' },
+                { name: 'Profile', href: '#services' },
+                { name: 'Home', href: '#' }
+              ].map((item) => (
+                <li key={item.name}>
+                  <a href={item.href} className="group flex items-center text-xs text-gray-500 hover:text-white transition-all tracking-widest">
                     <span className="w-0 group-hover:w-4 h-[1px] bg-cyan-500 mr-0 group-hover:mr-3 transition-all duration-300"></span>
-                    {item.toUpperCase()}
+                    {item.name.toUpperCase()}
                   </a>
                 </li>
               ))}
@@ -126,7 +131,7 @@ const Footer = () => {
           >
             <h4 className="text-[11px] font-mono font-bold text-cyan-500/80 tracking-[0.4em] uppercase">Neural_Network</h4>
             <div className="flex flex-wrap gap-2">
-              {['Vite', 'React', 'GSAP', 'Framer', 'Three.js'].map((tech) => (
+              {['HTML5', 'CSS3', 'JavaScript', 'Python', 'React.js', 'MySQL'].map((tech) => (
                 <span key={tech} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[9px] text-gray-500 tracking-widest hover:border-cyan-500/30 hover:text-cyan-400 transition-colors cursor-default">
                   {tech.toUpperCase()}
                 </span>

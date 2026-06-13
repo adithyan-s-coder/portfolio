@@ -30,11 +30,6 @@ export default function Hero() {
         <div className="portfolio-ui center-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none opacity-100 mix-blend-screen z-[1]"></div>
 
         {/* --- HUD ELEMENTS --- */}
-        <div className="portfolio-ui absolute top-28 left-8 md:top-32 md:left-12 z-[60] font-mono text-[10px] text-blue-400 tracking-widest flex flex-col space-y-1.5 pointer-events-none">
-            <motion.span initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.5}}>&gt; SYSTEM ONLINE</motion.span>
-            <motion.span initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.7}}>&gt; INITIALIZING PORTFOLIO v2.0</motion.span>
-            <motion.span initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.9}}>&gt; NEURAL LINK ESTABLISHED</motion.span>
-        </div>
         <div className="portfolio-ui absolute bottom-12 right-8 md:bottom-12 md:right-12 z-[60] font-mono text-[10px] text-gray-600 tracking-widest text-right flex flex-col space-y-1.5 pointer-events-none">
             <motion.span initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1.1}}>SECURE SYS_ID: REACT_GSAP</motion.span>
             <motion.span initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1.3}}>COORD: 34.0522 N / 118.2437 W</motion.span>
@@ -54,7 +49,7 @@ export default function Hero() {
 
         {/* --- PORTFOLIO TEXT OVERLAY --- */}
         <AnimatePresence>
-            <div className="portfolio-ui absolute inset-0 z-[50] pointer-events-none flex flex-col justify-center items-center md:items-start px-8 md:px-[15%] lg:px-[18%] pt-32 pb-16 md:pt-0 pb-0">
+            <div className="portfolio-ui absolute inset-0 z-[50] pointer-events-none flex flex-col justify-center items-center md:items-start px-8 md:px-[8%] lg:px-[10%] pt-32 pb-16 md:pt-0 pb-0">
                 
                 {/* LEFT SIDE: All Content */}
                 <div className="w-full md:w-[50%] flex flex-col items-center md:items-start text-center md:text-left mt-16 md:mt-0">

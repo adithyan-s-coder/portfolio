@@ -89,8 +89,7 @@ export default function Services() {
       ref={containerRef}
       className="relative py-24 px-6 md:px-12 lg:px-24 bg-[#000] text-white overflow-hidden scroll-mt-24"
     >
-      {/* Background Subtle Grid */}
-      <div className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)', backgroundSize: '60px 60px' }}></div>
+      {/* Background Subtle Grid (Removed per user request) */}
       {/* Noise Texture */}
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none mix-blend-overlay" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
 
@@ -150,23 +149,23 @@ export default function Services() {
                   <FiBriefcase size={22} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold tracking-widest uppercase">Experience</h3>
+                  <h3 className="text-lg font-bold tracking-widest uppercase">Profile</h3>
                   <span className="text-[8px] font-mono text-gray-600 block tracking-[0.4em] mt-1">MODULE ACTIVE</span>
                 </div>
               </div>
 
               <div className="flex gap-4 mb-8">
                 <div className="h-10 px-3 bg-white flex items-center justify-center rounded-sm">
-                   <span className="text-black font-black text-[10px] tracking-tighter">AGROGANAM</span>
+                   <span className="text-black font-black text-[10px] tracking-tighter">STUDENT</span>
                 </div>
                 <div className="h-10 px-3 border border-white/20 flex items-center justify-center rounded-sm">
-                   <span className="text-white font-bold text-[10px] tracking-widest">INCUBATION</span>
+                   <span className="text-white font-bold text-[10px] tracking-widest">FRESHER</span>
                 </div>
               </div>
 
               <p className="text-gray-400 font-light text-sm leading-relaxed mb-12">
-                Completed a 6-month internship at <span className="text-white font-medium">Agroganam Technologies</span>, 
-                delivering production-level apps and collaborating on real-time incubation center projects.
+                I am a passionate <span className="text-white font-medium">Computer Science student</span> and a highly motivated fresher. 
+                I focus on building dynamic web applications and constantly expanding my technical skill set.
               </p>
 
               <div className="mt-auto space-y-6">
@@ -174,18 +173,19 @@ export default function Services() {
                   <div className="absolute inset-0 bg-blue-500/5 z-10 mix-blend-overlay"></div>
                   <img 
                     className="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 scale-100 group-hover:scale-105" 
-                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800" 
-                    alt="Work Showcase" 
+                    src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800" 
+                    alt="Coding Workspace" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                   <div className="absolute bottom-4 left-4 font-mono text-[8px] text-gray-500 tracking-widest">SYSTEM_IMAGE_01</div>
                 </div>
                 
-                <button 
-                  className="w-full py-4 border border-white/10 text-white font-mono text-[10px] uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-300 rounded-sm"
+                <a 
+                  href="#projects"
+                  className="block text-center w-full py-4 border border-white/10 text-white font-mono text-[10px] uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-300 rounded-sm"
                 >
-                  View Case Study
-                </button>
+                  View My Projects
+                </a>
               </div>
             </div>
           </div>

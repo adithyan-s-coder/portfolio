@@ -15,7 +15,7 @@ const projectData = [
     title: "Event Budget App",
     tags: ["Responsive Design", "Web App"],
     link: "#",
-    github: "#",
+    github: "https://github.com/adithyan-s-coder/Event-budget-analyzer.git",
   },
   {
     image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800",

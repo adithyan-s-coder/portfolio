@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX } from 'react-icons/fi';
 
 const navLinks = [
   { name: 'Home', href: '#' },
   { name: 'About', href: '#about' },
   { name: 'Services', href: '#services' },
-  { name: 'Portfolio', href: '#portfolio' },
-  { name: 'Contact', href: '#contact' }
+  { name: 'Projects', href: '#projects' },
+  { name: 'Contact', href: '#contactme' }
 ];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('Home');
-  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,18 +69,10 @@ export default function Navbar() {
 
             {/* Action Group */}
             <div className="flex items-center space-x-6 border-l border-white/10 pl-10 h-6">
-                {/* Theme Toggle */}
-                <button 
-                  onClick={() => setIsDarkMode(!isDarkMode)}
-                  className="text-white/40 hover:text-white hover:scale-110 active:scale-95 transition-all duration-300 group"
-                >
-                  {isDarkMode ? <FiSun size={14} className="group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]" /> : <FiMoon size={14} />}
-                </button>
-
                 {/* Hire Me Button */}
-                <button className="px-5 py-1.5 border border-white/20 text-white font-mono text-[9px] uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500 rounded-sm">
+                <a href="#contactme" className="px-5 py-1.5 border border-white/20 text-white font-mono text-[9px] uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500 rounded-sm">
                     Hire Me
-                </button>
+                </a>
             </div>
           </div>
 
@@ -126,9 +117,9 @@ export default function Navbar() {
             </li>
           ))}
           <li className={`pt-6 transition-all duration-500 ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: `${navLinks.length * 100}ms` }}>
-            <button className="px-12 py-3 border border-white/20 text-white font-mono text-[10px] uppercase tracking-[0.4em] hover:bg-white hover:text-black transition-all rounded-sm">
+            <a href="#contactme" onClick={() => setIsMobileMenuOpen(false)} className="inline-block px-12 py-3 border border-white/20 text-white font-mono text-[10px] uppercase tracking-[0.4em] hover:bg-white hover:text-black transition-all rounded-sm">
                 Hire Me
-            </button>
+            </a>
           </li>
         </ul>
         
