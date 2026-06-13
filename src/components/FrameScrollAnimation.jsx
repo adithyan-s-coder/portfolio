@@ -70,7 +70,7 @@ const FrameScrollAnimation = ({ frameCount = 240 }) => {
       const safeIndex = Math.max(0, Math.min(index, frameCount - 1));
       const img = images.current[safeIndex];
 
-      if (img && img.complete) {
+      if (img && img.complete && img.naturalWidth !== 0) {
         // Responsive cover logic
         const canvasAspect = canvas.width / canvas.height;
         const imgAspect = img.width / img.height;
