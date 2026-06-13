@@ -41,6 +41,13 @@ const FrameScrollAnimation = ({ frameCount = 240 }) => {
             setLoaded(true);
           }
         };
+        img.onerror = () => {
+          loadedCount++;
+          setLoadingProgress(Math.floor((loadedCount / frameCount) * 100));
+          if (loadedCount === frameCount) {
+            setLoaded(true);
+          }
+        };
         // Add to array even if not loaded yet
         images.current.push(img);
       }
