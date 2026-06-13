@@ -27,10 +27,10 @@ export default function Hero() {
         </motion.div>
 
         {/* Center Subdued Blue Glow */}
-        <div className="portfolio-ui center-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none opacity-100 mix-blend-screen z-[1]"></div>
+        <div className="portfolio-ui center-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[60vw] md:h-[60vw] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none opacity-100 mix-blend-screen z-[1]"></div>
 
         {/* --- HUD ELEMENTS --- */}
-        <div className="portfolio-ui absolute bottom-12 right-8 md:bottom-12 md:right-12 z-[60] font-mono text-[10px] text-gray-600 tracking-widest text-right flex flex-col space-y-1.5 pointer-events-none">
+        <div className="portfolio-ui absolute bottom-12 right-8 md:bottom-12 md:right-12 z-[60] font-mono text-[8px] sm:text-[10px] text-gray-600 tracking-widest text-right flex flex-col space-y-1.5 pointer-events-none hidden sm:flex">
             <motion.span initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1.1}}>SECURE SYS_ID: REACT_GSAP</motion.span>
             <motion.span initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1.3}}>COORD: 34.0522 N / 118.2437 W</motion.span>
         </div>
@@ -59,7 +59,7 @@ export default function Hero() {
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
                         className="mb-4"
                     >
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-white tracking-[0.1em] uppercase leading-none" style={{ textShadow: "0 0 20px rgba(255,255,255,0.2)" }}>
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-white tracking-[0.1em] uppercase leading-none" style={{ textShadow: "0 0 20px rgba(255,255,255,0.2)" }}>
                             {titleText}
                         </h1>
                     </motion.div>

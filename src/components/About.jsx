@@ -55,11 +55,11 @@ export default function About() {
         <div className="relative z-[50] w-full flex flex-col items-center lg:items-end justify-center lg:justify-end">
             
             {/* Main Content Pane */}
-            <div className="w-full lg:w-[55%] xl:w-[50%] flex flex-col space-y-10 pointer-events-auto bg-black/40 backdrop-blur-sm p-8 md:p-12 border border-white/5 rounded-2xl lg:ml-auto">
+            <div className="w-full lg:w-[55%] xl:w-[50%] flex flex-col space-y-10 pointer-events-auto bg-black/40 backdrop-blur-sm p-6 sm:p-8 md:p-12 border border-white/5 rounded-2xl lg:ml-auto">
                 {/* Header */}
                 <div className="space-y-2">
                     <p className="text-blue-500 font-mono text-[10px] uppercase tracking-[0.5em]">SYSTEM INFO</p>
-                    <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tighter uppercase">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tighter uppercase">
                         About Me<span className="text-blue-500">.</span>
                     </h2>
                 </div>
@@ -72,7 +72,7 @@ export default function About() {
                 </div>
 
                 {/* Cards Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
                     {Aboutdata.map((item) => (
                         <div key={item.title} className="group flex flex-col h-full p-5 bg-white/5 border border-white/10 hover:border-blue-500/40 transition-all duration-300 rounded-xl">
                             <div className="text-blue-500 mb-3 opacity-70 group-hover:opacity-100 transition-opacity">
@@ -106,7 +106,7 @@ export default function About() {
                     <a 
                         href="/resume.pdf" 
                         download="Adithyan_S_Resume.pdf"
-                        className="inline-flex items-center space-x-6 px-12 py-4 bg-blue-600 text-white font-bold text-xs uppercase tracking-widest hover:bg-blue-700 transition-all duration-300 rounded-full shadow-lg shadow-blue-900/20"
+                        className="flex md:inline-flex justify-center items-center space-x-6 px-8 md:px-12 py-4 bg-blue-600 text-white font-bold text-xs uppercase tracking-widest hover:bg-blue-700 transition-all duration-300 rounded-full shadow-lg shadow-blue-900/20 w-full md:w-auto"
                     >
                         <span>Download Resume</span>
                         <FiDownload size={16} />

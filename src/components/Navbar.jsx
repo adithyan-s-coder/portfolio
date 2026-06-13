@@ -36,7 +36,7 @@ export default function Navbar() {
           {/* Logo & System Status */}
           <div className="flex items-center space-x-4 group cursor-pointer" onClick={() => (window.location.href = 'https://portfolio-cyan-five-bsasv9p3i6.vercel.app/')}>
             <div className="flex flex-col">
-                <span className="text-white text-xl font-black tracking-[0.2em] uppercase leading-none">
+                <span className="text-white text-xl font-black tracking-[0.2em] uppercase leading-none whitespace-nowrap">
                     ADITHYAN S<span className="text-blue-500 animate-pulse ml-0.5">.</span>
                 </span>
                 <span className="text-[8px] font-mono text-blue-400 mt-1 opacity-60 tracking-[0.3em] uppercase">SYSTEM ONLINE</span>

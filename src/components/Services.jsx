@@ -98,7 +98,7 @@ export default function Services() {
         <div className="inline-block px-3 py-1 border border-blue-500/30 bg-blue-500/5 rounded-sm mb-4">
           <p className="text-blue-400 font-mono text-[10px] uppercase tracking-[0.5em]">SERVICES MODULE</p>
         </div>
-        <h2 className="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-6">
+        <h2 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tighter uppercase mb-6">
           My Services<span className="text-blue-500">.</span>
         </h2>
         <div className="w-24 h-[1px] bg-blue-500/40 mx-auto mb-8"></div>
@@ -114,7 +114,7 @@ export default function Services() {
           {mainServices.map((service) => (
             <div
               key={service.title}
-              className="service-card group p-10 bg-[#0a0a0a] border border-white/[0.05] hover:border-blue-500/30 hover:shadow-[0_0_30px_rgba(59,130,246,0.05)] transition-all duration-300 rounded-sm cursor-default flex flex-col items-start"
+              className="service-card group p-6 sm:p-8 md:p-10 bg-[#0a0a0a] border border-white/[0.05] hover:border-blue-500/30 hover:shadow-[0_0_30px_rgba(59,130,246,0.05)] transition-all duration-300 rounded-sm cursor-default flex flex-col items-start"
             >
               <div className="mb-8 p-4 bg-white/5 border border-white/10 rounded-sm text-gray-300 group-hover:text-blue-400 group-hover:border-blue-500/20 transition-all">
                 {service.icon}

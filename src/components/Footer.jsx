@@ -69,7 +69,7 @@ const Footer = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
           
           {/* Section 1: Brand/Core */}
           <motion.div 
