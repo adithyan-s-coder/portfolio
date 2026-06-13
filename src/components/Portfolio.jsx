@@ -7,7 +7,7 @@ const projectData = [
     image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800",
     title: "Portfolio Website",
     tags: ["HTML", "CSS", "JavaScript"],
-    link: "#",
+    link: "https://portfolio-cyan-five-bsasv9p3i6.vercel.app/",
     github: "https://github.com/adithyan-s-coder/portfolio.git",
   },
   {

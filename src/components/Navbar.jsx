@@ -34,7 +34,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center h-12">
           
           {/* Logo & System Status */}
-          <div className="flex items-center space-x-4 group cursor-pointer" onClick={() => (window.location.href = '#')}>
+          <div className="flex items-center space-x-4 group cursor-pointer" onClick={() => (window.location.href = 'https://portfolio-cyan-five-bsasv9p3i6.vercel.app/')}>
             <div className="flex flex-col">
                 <span className="text-white text-xl font-black tracking-[0.2em] uppercase leading-none">
                     ADITHYAN S<span className="text-blue-500 animate-pulse ml-0.5">.</span>
