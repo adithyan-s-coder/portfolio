@@ -21,29 +21,49 @@ const FrameScrollAnimation = ({ frameCount = 240 }) => {
   // 3. Transform Progress to Frame Index
   const frameIndex = useTransform(smoothProgress, [0, 0.9], [1, frameCount]);
 
-  // 4. Canvas Rendering (Memory Safe - No Preload Array)
+  const images = useRef([]);
+  const [loaded, setLoaded] = useState(false);
+  const [loadingProgress, setLoadingProgress] = useState(0);
+
+  // Preloading Logic for Production Network (Vercel)
   useEffect(() => {
+    let loadedCount = 0;
+    const preloadImages = () => {
+      for (let i = 1; i <= frameCount; i++) {
+        const img = new Image();
+        const frameNumber = String(i).padStart(3, "0");
+        img.src = `/image2/ezgif-frame-${frameNumber}.jpg`;
+        
+        img.onload = () => {
+          loadedCount++;
+          setLoadingProgress(Math.floor((loadedCount / frameCount) * 100));
+          if (loadedCount === frameCount) {
+            setLoaded(true);
+          }
+        };
+        // Add to array even if not loaded yet
+        images.current.push(img);
+      }
+    };
+    preloadImages();
+  }, [frameCount]);
+
+  // Canvas Rendering
+  useEffect(() => {
+    if (!loaded) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext("2d", { alpha: false }); // alpha: false optimizes memory
+    const ctx = canvas.getContext("2d", { alpha: false });
 
-    // Single reusable image object to prevent memory leaks
-    const img = new Image();
-    
-    // Track the currently drawn index to avoid redundant draws
-    let lastDrawnIndex = 0;
+    let animationFrameId;
 
     const render = () => {
-      const index = Math.round(frameIndex.get());
-      
-      // Don't re-draw if it's the same frame
-      if (index === lastDrawnIndex) return;
-      lastDrawnIndex = index;
+      const index = Math.round(frameIndex.get()) - 1; // 0-indexed for array
+      const safeIndex = Math.max(0, Math.min(index, frameCount - 1));
+      const img = images.current[safeIndex];
 
-      const frameNumber = String(index).padStart(3, "0");
-      img.src = `/image2/ezgif-frame-${frameNumber}.jpg`;
-
-      img.onload = () => {
+      if (img && img.complete) {
         // Responsive cover logic
         const canvasAspect = canvas.width / canvas.height;
         const imgAspect = img.width / img.height;
@@ -62,7 +82,7 @@ const FrameScrollAnimation = ({ frameCount = 240 }) => {
         }
 
         ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
-      };
+      }
     };
 
     const resizeCanvas = () => {
@@ -75,13 +95,18 @@ const FrameScrollAnimation = ({ frameCount = 240 }) => {
     resizeCanvas();
 
     // Frame update loop
-    const unsubscribe = frameIndex.on("change", render);
+    const unsubscribe = frameIndex.on("change", () => {
+        // use requestAnimationFrame to throttle drawing
+        if (animationFrameId) cancelAnimationFrame(animationFrameId);
+        animationFrameId = requestAnimationFrame(render);
+    });
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
       unsubscribe();
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
-  }, [frameIndex]);
+  }, [loaded, frameIndex, frameCount]);
 
   // 5. Anti-Gravity 3D Effects
   const y = useTransform(smoothProgress, [0, 1], ["0%", "-10%"]);
@@ -99,6 +124,21 @@ const FrameScrollAnimation = ({ frameCount = 240 }) => {
     <div ref={containerRef} className="relative h-[600vh] bg-[#020202]">
       <div className="sticky top-0 left-0 w-full h-screen overflow-hidden flex items-center justify-center perspective-2000">
         
+        {/* Loading Overlay */}
+        {!loaded && (
+          <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-[#020202]">
+            <div className="text-blue-500 font-mono text-[10px] uppercase tracking-[0.5em] mb-4">
+              Syncing Core Frames... {loadingProgress}%
+            </div>
+            <div className="w-1/4 h-[1px] bg-white/10 overflow-hidden">
+               <motion.div 
+                 className="h-full bg-blue-500" 
+                 style={{ width: `${loadingProgress}%` }}
+               />
+            </div>
+          </div>
+        )}
+
         {/* The Animated Frame (Canvas) */}
         <motion.div
            style={{
